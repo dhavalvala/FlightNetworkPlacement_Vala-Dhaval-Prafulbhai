@@ -1,0 +1,104 @@
+                         
+                          Game of Elimination :  (Using C Language(TurboC))
+
+##->To implement the Game of elimination here we use the concept of  ‘CIRCULAR LINKED LIST’.
+ 
+=>On console we have three choices as follow.
+
+1)ENTER KIDS(Add) : If we press choice 1  then it will ask for How many kids you want to play the game (M)? Then it will ask for kids name and create separate node for each kid and link the node into the circular list.
+
+2)ELIMINATE : If we press choice 2 then it will select any random  number (N) where(N<M).program traverse the circular list start from the first node to (N) and delete the node from  circular list when PASSES becomes equal to ‘N ‘.It continue this process untill there is onely one node remain left and it last kid becomes the winner.
+
+3)EXIT: If we press choice then programe will be terminated. 
+
+Algorith  for Elimination is as fillow:
+
+=> Total number of kids‘M‘and random number‘N’were (N<M) is given.
+=> ‘FIRST’ is a first node of circular list from which we starts the traversing.‘TEMP’  is a temporary     node  and  ‘Previous’ node precedes ‘TEMP’ node  it is used to delete the node at appropriate location from the  circular list.
+
+
+Procedure_Game(N,M,temp)
+{N stands for Random number,
+ M stands for Total no. of childern
+ temp is a temparary variable.
+
+#This is for add node into the list.
+
+step-1)check for list empty if yes then set first=new;
+	
+		if(first == null) then
+
+			first=new;
+step-2) if the node is exist then traverse the list(temp) upto the node whose link will be 	null.
+
+		temp=first->next;
+
+     		while(temp->next!=first)
+     		{
+			temp=temp->next;
+     		}
+     		new1->next=temp->next;
+     		temp->next=new1;
+
+
+#Delete node into the list
+
+step-1)First check is list is empty or not.
+
+		if(First==null)then {exit(0)} else {step2}
+
+step-2)select any random number with the help of random() Function.
+	
+		_________	__________	_________
+		| 1  |--|------>|  2  |--|----->|  3 |	|
+		|    |	|	|     |	 |	|    |Nll
+		"""""""""	""""""""""	"""""""""
+
+		now suppos you want to delete"2" then 
+
+		first->link=second->link
+		delete second
+		
+		--------------
+step-3) suppos if random nomer is 0 then proced follow code
+						
+		if(position==0)
+  		{ 
+    		temp=first->next;
+    		while(temp!=first)
+    		{
+      			prev=temp;
+      			temp=temp->next;
+    		}
+    		prev->next=temp->next;
+    		first=prev->next;
+  		}
+  		
+step-4) if any other number is selecte to delete then follow this code.
+  		{
+   			 temp=first;
+    			for(i=0;i<position;i++)
+    			{
+      				prev=temp;
+      				temp=temp->next;
+    			}
+    		prev->next=temp->next;
+
+    		first=prev->next;
+  End/
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
